@@ -1,0 +1,43 @@
+# Node.js Standard
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Produktions-Builds
+dist/
+build/
+
+# Lokale Umgebungsdateien
+.env
+.env.*.local
+
+# Betriebssystem-Dateien
+.DS_Store
+Thumbs.db
+
+# Logdateien & Coverage
+logs/
+*.log
+coverage/
+
+# VSCode & andere Editor-Konfigurationen
+.vscode/
+.idea/
+
+# PM2-Prozessdateien
+pids/
+*.pid
+*.seed
+
+# Sonstige temporäre Dateien
+*.tgz
+*.swp
+*.bak
+
+# Docker
+docker-compose.override.yml
+*.local.yaml
+
+# GitHub Actions
+.github/workflows/*.log
