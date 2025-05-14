@@ -1,140 +1,216 @@
 <p align="center">
-  <img src="./assets/logo.PNG" alt="PrescriptCheck Logo" width="200"/>
+  <img src="https://www.at-medical.de/logo.png" alt="AT Medical Logo" height="100">
 </p>
 
-<p align="center"><strong>Digitale Rezeptvalidierung für Privatrezepte – Secure prescription validation made in Germany</strong></p>
-
-<p align="center">
-  <a href="#features">Features</a> •
-  <a href="#installation">Installation</a> •
-  <a href="#usage--nutzung">Nutzung</a> •
-  <a href="#contributing--mitmachen">Mitmachen</a> •
-  <a href="#license--lizenz">Lizenz</a>
-</p>
-
----
-
-## Initial Public Release – Version 0.1.0
-
-Diese Version enthält:
-- Grundstruktur für Rezeptvalidierung
-- Apothekenportal mit Echtzeitprüfung
-- Lizenzmanagement über Stripe, PayPal & Klarna
-- Admin-Dashboard & Benutzerverwaltung
-- Vorbereitungen für Videosprechstunden-Modul
-
-> Hinweis: Diese Version markiert den ersten öffentlichen Stand des Projekts.
-
----
-
-## Projektbeschreibung / Project Overview
-
-PrescriptCheck ist ein innovatives System zur Validierung von Privatrezepten. Es ermöglicht Ärzt:innen, fälschungssichere Rezepte zu erstellen, und Apotheken, die Echtheit dieser Rezepte über eine sichere Plattform zu überprüfen – digital, effizient und gesetzeskonform.
-
-PrescriptCheck is an innovative prescription validation platform for private prescriptions in Germany. It enables doctors to issue tamper-proof prescriptions and pharmacies to verify authenticity via a secure, real-time system.
+**PrescriptCheck** ist eine digitale Plattform zur Validierung von Privatrezepten in Deutschland. Ziel ist es, Apotheken eine sichere Möglichkeit zu geben, die Echtheit und Gültigkeit eines Rezepts zu überprüfen – datenschutzkonform, revisionssicher und praxisnah.
 
 ---
 
 ## Features
 
-- Rezeptausstellung mit QR-Validierung & Sicherheitscode  
-- Druck- & Einlöseverfolgung  
-- Echtzeitprüfung für Apotheken  
-- Lizenzmanagement (Stripe, PayPal, Klarna)  
-- Patientenakte mit Verlauf & Vorlagen  
-- Digitale Signatur, Audit-Logs, verschlüsselte Exporte  
-- Videosprechstunde & Dashboard  
+- Digitale Rezeptprüfung mit QR-Code oder Seriennummer  
+- Statusverwaltung: gültig, eingelöst, gesperrt, abgelaufen  
+- PDF417-Barcode-Generierung und Validierung  
+- Apothekenprüfung mit Echtzeit-Statusabfrage  
+- Benutzerrollen: Arzt, Apotheke, Admin  
+- Lizenz- und Zahlungsabwicklung (Stripe, PayPal, Klarna)  
+- Telemedizin-Modul (Videoberatung)  
+- SCORM-kompatible Lernmodule für medizinisches Fachpersonal  
+- Mehrsprachige Oberfläche  
+- PM2- und Docker-Deployment  
+- GitHub Actions CI/CD Workflows  
 
 ---
 
-## Installation
+## Projektstruktur
 
-### Voraussetzungen / Requirements
+```
+/backend            → Node.js (Express) API  
+/frontend           → Vue 3 App mit Vite  
+/scripts            → Shell-Skripte für Deployment, SSL, Seeding  
+/docs               → Dokumentation, Architektur, Indexseiten  
+/scorm              → SCORM Module für Weiterbildung  
+.github/workflows   → CI/CD Konfiguration (GitHub Actions)  
+pm2.config.js       → Prozessmanager-Konfiguration (PM2)  
+Dockerfile          → Docker-Build-Anleitung  
+docker-compose.yml  → Lokale Multi-Service-Entwicklung  
+.env.template       → Beispiel für Produktionskonfiguration  
+```
 
-- Node.js >= 20
-- MongoDB (Atlas oder lokal)
-- PM2 (für Production Mode)
-- nginx (für Reverse Proxy)
-- Git
+---
 
-### Lokale Installation
+## Setup
+
+### 1. Klonen & Installieren
 
 ```bash
-git clone https://github.com/at-medical/prescriptcheck.git
-cd prescriptcheck
+git clone https://github.com/ATMedicalGmbH/PrescriptCheck.git
+cd PrescriptCheck
 npm install
-cp .env.example .env
-npm run dev
+```
+
+### 2. Umgebungsvariablen
+
+Erstelle eine Datei `.env.production` auf Basis der Vorlage `.env.template`:
+
+```env
+NODE_ENV=production
+PORT=3000
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/prescriptcheck
+JWT_SECRET=your_jwt_secret
+STRIPE_SECRET_KEY=sk_live_xxx
+SMTP_HOST=smtp.example.com
+SMTP_USER=mailer@example.com
+SMTP_PASS=securepassword
 ```
 
 ---
 
-## Usage / Nutzung
+## Lokaler Start
 
-- **Ärzt:innen-Portal:** Rezepte erstellen, verwalten & validieren  
-  Das Portal ermöglicht die Ausstellung, Verwaltung und Validierung digitaler Privatrezepte.
-- **Apothekenportal:** Validierung & Einlösung dokumentieren  
-  Apotheken können Rezepte auf Gültigkeit prüfen, Einlösungen erfassen und die Verordnungshistorie einsehen.
-- **Adminbereich:** Lizenzverwaltung, Sicherheitsprotokolle, Statistik  
-  Die Administrationsoberfläche dient der Lizenzsteuerung, Audit-Kontrolle und dem Nutzungsmonitoring.
-
-**Start im Produktionsmodus:**
+### Entwicklung:
 
 ```bash
-npm run start:prod
+npm run dev         # Frontend via Vite
+npm run backend     # Backend via Node.js
+```
+
+### Produktion mit PM2:
+
+```bash
+pm2 start pm2.config.js
+```
+
+### Produktion mit Docker:
+
+```bash
+docker build -t prescriptcheck .
+docker run -p 3000:3000 prescriptcheck
+```
+
+### Mit Docker Compose:
+
+```bash
+docker-compose up --build
 ```
 
 ---
 
-## Contributing / Mitmachen
+## Sicherheit & .gitignore
 
-Wir freuen uns über Beiträge jeder Art – ob Code, Feedback, Bug-Meldungen oder neue Feature-Ideen!
-
-### So kannst du mitwirken:
-
-1. Forke das Projekt  
-2. Erstelle einen Feature-Branch:  
-   `git checkout -b feature/meine-änderung`
-3. Nimm deine Änderungen vor und committe sie:  
-   `git commit -m "Neue Funktion hinzugefügt"`
-4. Push den Branch und öffne einen Pull Request:  
-   `git push origin feature/meine-änderung`
-
-### Code Style:
-
-- 2 Leerzeichen für Einrückung  
-- Bitte ESLint verwenden  
-- Aussagekräftige Commits  
-- Pull Requests mit klarer Beschreibung
-
-### Sicherheitshinweise:
-
-Kritische Schwachstellen bitte **nicht öffentlich posten**, sondern per Mail an:
-
-**support@at-medical.de**
+```gitignore
+node_modules/
+.env
+.env.production
+.env.template
+dist/
+.vscode/
+logs/
+*.log
+```
 
 ---
 
-## License / Lizenz
+## GitHub Actions CI/CD
 
-MIT License
+### 1. CI: Build & Test Workflow (`ci.yml`)
 
-Copyright (c) 2025 AT Medical GmbH
+```yaml
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install
+      - run: cd frontend && npm install && npm run build
+      - run: npm run backend &
+      - run: sleep 5 && curl --fail http://localhost:3000 || exit 1
+```
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+### 2. Release Workflow (`release.yml`)
 
-Der obige Copyright-Hinweis und dieser Genehmigungshinweis müssen in allen
-Kopien oder wesentlichen Teilen der Software enthalten sein.
+```yaml
+name: Create Release
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm install
+      - run: cd frontend && npm install && npm run build
+      - uses: softprops/action-gh-release@v1
+        with:
+          generate_release_notes: true
+```
 
-DIE SOFTWARE WIRD OHNE JEGLICHE GARANTIE BEREITGESTELLT, AUSDRÜCKLICH ODER
-IMPLIZIERT, EINSCHLIESSLICH DER GARANTIEN DER MARKTGÄNGIGKEIT, DER EIGNUNG FÜR
-EINEN BESTIMMTEN ZWECK UND DER NICHTVERLETZUNG. IN KEINEM FALL SIND DIE AUTOREN
-ODER COPYRIGHTINHABER FÜR ANSPRÜCHE, SCHÄDEN ODER SONSTIGE HAFTUNG
-VERANTWORTLICH, OB IN EINEM VERTRAGSVERHÄLTNIS, EINEM DELIKT ODER ANDERWEITIG,
-AUS ODER IN VERBINDUNG MIT DER SOFTWARE ODER DER VERWENDUNG ODER ANDEREN
-UMGÄNGEN MIT DER SOFTWARE.
+### 3. Docker Deployment Workflow (`docker.yml`)
+
+```yaml
+name: Build and Push Docker Image
+on:
+  push:
+    branches: [ main ]
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: yourdockerhubname/prescriptcheck:latest
+```
+
+### 4. SSH Deployment Workflow (`deploy.yml`)
+
+```yaml
+name: Deploy to Server
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: sudo apt-get install openssh-client -y
+      - uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd /home/ubuntu/prescriptcheck
+            git pull
+            npm install
+            pm2 restart prescriptcheck
+```
+
+---
+
+## Lizenz
+
+MIT License – © 2025 AT Medical GmbH
+
+---
+
+## Kontakt
+
+**Projektleitung:** Andreas Tremml  
+**Support:** support@at-medical.de  
+**Webseite:** [www.at-medical.de](https://www.at-medical.de)
