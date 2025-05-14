@@ -1,8 +1,7 @@
 <p align="center">
-  <img src="/assets/logo.PNG" alt="PrescriptCheck Logo" width="200"/>
+  <img src="./assets/logo.PNG" alt="PrescriptCheck Logo" width="200"/>
 </p>
 
-<h1 align="center">PrescriptCheck</h1>
 <p align="center"><strong>Digitale Rezeptvalidierung für Privatrezepte – Secure prescription validation made in Germany</strong></p>
 
 <p align="center">
