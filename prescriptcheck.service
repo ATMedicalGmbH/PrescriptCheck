@@ -1,0 +1,15 @@
+[Unit]
+Description=PrescriptCheck Node.js API (PM2)
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/var/www/prescriptcheck
+ExecStart=/usr/bin/pm2 start pm2.config.js --env production
+ExecReload=/usr/bin/pm2 reload all
+ExecStop=/usr/bin/pm2 stop all
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
