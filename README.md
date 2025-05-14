@@ -9,8 +9,8 @@
   <a href="#features">Features</a> •
   <a href="#installation">Installation</a> •
   <a href="#nutzung">Nutzung</a> •
-  <a href="#mitmachen">Mitmachen</a> •
-  <a href="#lizenz">Lizenz</a>
+  <a href="#contributing">Mitmachen</a> •
+  <a href="#license">Lizenz</a>
 </p>
 
 ---
