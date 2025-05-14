@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>PrescriptCheck – Digitale Rezeptvalidierung</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #1a4a83;
+    }
+    pre {
+      background: #eee;
+      padding: 1rem;
+      overflow-x: auto;
+    }
+    code {
+      background: #eee;
+      padding: 0.2rem 0.4rem;
+      font-family: monospace;
+    }
+    .center {
+      text-align: center;
+    }
+    .logo {
+      max-width: 200px;
+    }
+    nav a {
+      margin: 0 0.5rem;
+      color: #1a4a83;
+      text-decoration: none;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    hr {
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="center">
+  <img src="./assets/logo.PNG" alt="PrescriptCheck Logo" class="logo"/>
+  <p><strong>Digitale Rezeptvalidierung für Privatrezepte – Secure prescription validation made in Germany</strong></p>
+  <nav>
+    <a href="#features">Features</a> •
+    <a href="#installation">Installation</a> •
+    <a href="#usage">Nutzung</a> •
+    <a href="#contributing">Mitmachen</a> •
+    <a href="#license">Lizenz</a>
+  </nav>
+</div>
+
+<hr/>
+
+<h2 id="release">Initial Public Release – Version 0.1.0</h2>
+<ul>
+  <li>Grundstruktur für Rezeptvalidierung</li>
+  <li>Apothekenportal mit Echtzeitprüfung</li>
+  <li>Lizenzmanagement über Stripe, PayPal & Klarna</li>
+  <li>Admin-Dashboard & Benutzerverwaltung</li>
+  <li>Vorbereitungen für Videosprechstunden-Modul</li>
+</ul>
+<blockquote>Hinweis: Diese Version markiert den ersten öffentlichen Stand des Projekts.</blockquote>
+
+<h2 id="beschreibung">Projektbeschreibung / Project Overview</h2>
+<p><strong>PrescriptCheck</strong> ist ein innovatives System zur Validierung von Privatrezepten...
+<br/><strong>PrescriptCheck</strong> is an innovative prescription validation platform for private prescriptions in Germany...</p>
+
+<h2 id="features">Features</h2>
+<ul>
+  <li>Rezeptausstellung mit QR-Validierung & Sicherheitscode</li>
+  <li>Druck- & Einlöseverfolgung</li>
+  <li>Echtzeitprüfung für Apotheken</li>
+  <li>Lizenzmanagement (Stripe, PayPal, Klarna)</li>
+  <li>Patientenakte mit Verlauf & Vorlagen</li>
+  <li>Digitale Signatur, Audit-Logs, verschlüsselte Exporte</li>
+  <li>Videosprechstunde & Dashboard</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+<h3>Voraussetzungen / Requirements</h3>
+<ul>
+  <li>Node.js >= 20</li>
+  <li>MongoDB (Atlas oder lokal)</li>
+  <li>PM2, nginx, Git</li>
+</ul>
+<h3>Lokale Installation</h3>
+<pre><code>git clone https://github.com/at-medical/prescriptcheck.git
+cd prescriptcheck
+npm install
+cp .env.example .env
+npm run dev
+</code></pre>
+
+<h2 id="usage">Usage / Nutzung</h2>
+<ul>
+  <li><strong>Ärzt:innen-Portal:</strong> Rezepte erstellen, verwalten & validieren</li>
+  <li><strong>Apothekenportal:</strong> Validierung & Einlösung dokumentieren</li>
+  <li><strong>Adminbereich:</strong> Lizenzverwaltung, Sicherheitsprotokolle, Statistik</li>
+</ul>
+<p><strong>Start im Produktionsmodus:</strong></p>
+<pre><code>npm run start:prod</code></pre>
+
+<h2 id="contributing">Contributing / Mitmachen</h2>
+<p>Wir freuen uns über Beiträge jeder Art...</p>
+<ol>
+  <li>Forke das Projekt</li>
+  <li>Erstelle einen Feature-Branch</li>
+  <li>Committe deine Änderungen</li>
+  <li>Öffne einen Pull Request</li>
+</ol>
+
+<h3>Code Style:</h3>
+<ul>
+  <li>2 Leerzeichen Einrückung</li>
+  <li>ESLint verwenden</li>
+  <li>Klar verständliche Commits</li>
+</ul>
+
+<h3>Sicherheit:</h3>
+<p>Bitte keine Schwachstellen öffentlich posten – sende sie an <strong>support@at-medical.de</strong></p>
+
+<h2 id="license">License / Lizenz</h2>
+<p><strong>MIT License</strong><br/>
+Copyright (c) 2025 AT Medical GmbH...</p>
+
+</body>
+</html>
