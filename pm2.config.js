@@ -4,7 +4,7 @@ module.exports = {
   apps: [
     {
       name: 'prescriptcheck',
-      script: './index.js',
+      script: './backend/app.js',
       instances: 1,
       autorestart: true,
       watch: false,
