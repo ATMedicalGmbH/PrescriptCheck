@@ -1,8 +1,10 @@
 <p align="center">
-  <img src="https://www.at-medical.de/logo.png" alt="AT Medical Logo" height="100">
+  <img src="https://www.at-medical.de/logo.png" alt="AT Medical Logo" height="120">
 </p>
 
-**PrescriptCheck** ist eine digitale Plattform zur Validierung von Privatrezepten in Deutschland. Ziel ist es, Apotheken eine sichere Möglichkeit zu geben, die Echtheit und Gültigkeit eines Rezepts zu überprüfen – datenschutzkonform, revisionssicher und praxisnah.
+<p align="center">
+  <strong>PrescriptCheck</strong> ist eine digitale Plattform zur Validierung von Privatrezepten in Deutschland. Ziel ist es, Apotheken eine sichere Möglichkeit zu geben, die Echtheit und Gültigkeit eines Rezepts zu überprüfen – datenschutzkonform, revisionssicher und praxisnah.
+</p>
 
 ---
 
@@ -96,7 +98,22 @@ docker-compose up --build
 
 ---
 
-## Sicherheit & .gitignore
+## Sicherheit & Datenschutz
+
+PrescriptCheck wurde nach dem Prinzip der „Security by Design“ und „Privacy by Default“ entwickelt. Zu den zentralen Maßnahmen gehören:
+
+- Kein Speichern personenbezogener Daten ohne Notwendigkeit  
+- AES-verschlüsselte PDF417-Barcodes auf Rezepten  
+- Passwortrichtlinien mit Mindestkomplexität und Validierung  
+- Vollständige Trennung zwischen Arzt- und Apothekenbereich  
+- Validierung von Rezepten nur über eindeutige Signatur & Zeitstempel  
+- Unterstützung von Zwei-Faktor-Authentifizierung (2FA)  
+- DSFA-konforme Risikobewertung dokumentiert  
+- Logging & Audit-Tracking für alle sensiblen Aktionen  
+
+---
+
+## .gitignore (Empfehlung)
 
 ```gitignore
 node_modules/
@@ -205,12 +222,16 @@ jobs:
 
 ## Lizenz
 
-MIT License – © 2025 AT Medical GmbH
+Diese Software ist urheberrechtlich geschützt und unterliegt einem kommerziellen Lizenzmodell der AT Medical GmbH.  
+Jegliche **Kopien, Modifikationen, Weiterverwendungen oder Veröffentlichungen – auch auszugsweise – sind ausdrücklich untersagt**, sofern keine schriftliche Genehmigung durch die Rechteinhaberin vorliegt.
+
+**Achtung:** PrescriptCheck ist ausschließlich für den Einsatz durch lizenzierte Vertragspartner bestimmt. Die Nutzung in medizinischen Kontexten unterliegt den jeweils geltenden gesetzlichen Vorgaben.  
+Jegliche missbräuchliche oder nicht autorisierte Nutzung – insbesondere zur Rezeptfälschung oder zur Umgehung gesetzlicher Anforderungen – kann rechtlich verfolgt werden.
 
 ---
 
 ## Kontakt
 
-**Projektleitung:** Andreas Tremml  
+**Projektleitung:** Dr. Andreas Tremml  
 **Support:** support@at-medical.de  
 **Webseite:** [www.at-medical.de](https://www.at-medical.de)
