@@ -16,4 +16,4 @@ COPY . .
 EXPOSE 3000
 
 # Startbefehl
-CMD ["node", "backend/app.js"]
+CMD ["node", "index.js"]
