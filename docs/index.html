@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PrescriptCheck – Redirecting…</title>
+  <script>
+    function getCookie(name) {
+      const value = "; " + document.cookie;
+      const parts = value.split("; " + name + "=");
+      if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+
+    function redirectLanguage() {
+      const savedLang = getCookie("prescript_lang");
+      if (savedLang === "en") {
+        window.location.href = "index.en.html";
+        return;
+      } else if (savedLang === "de") {
+        window.location.href = "index.de.html";
+        return;
+      }
+
+      const browserLang = navigator.language || navigator.userLanguage;
+      if (browserLang.startsWith("en")) {
+        document.cookie = "prescript_lang=en; path=/";
+        window.location.href = "index.en.html";
+      } else {
+        document.cookie = "prescript_lang=de; path=/";
+        window.location.href = "index.de.html";
+      }
+    }
+
+    window.onload = redirectLanguage;
+  </script>
+</head>
+<body>
+  <p>Weiterleitung… Redirecting…</p>
+</body>
+</html>
