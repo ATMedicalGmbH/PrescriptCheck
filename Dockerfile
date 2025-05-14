@@ -1,0 +1,19 @@
+# Dockerfile für PrescriptCheck
+
+FROM node:20-alpine
+
+# Arbeitsverzeichnis
+WORKDIR /app
+
+# Abhängigkeiten installieren
+COPY package*.json ./
+RUN npm install --production
+
+# Anwendung kopieren
+COPY . .
+
+# Port
+EXPOSE 3000
+
+# Startbefehl
+CMD ["node", "index.js"]
