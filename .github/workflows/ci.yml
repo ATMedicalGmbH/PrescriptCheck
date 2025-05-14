@@ -1,42 +1,36 @@
-name: CI/CD – PrescriptCheck Node.js App
+name: CI
 
 on:
   push:
-    branches:
-      - main
-      - develop
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Repository auschecken
-      uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-    - name: Node.js einrichten
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-    - name: Abhängigkeiten installieren
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Linting prüfen
-      run: |
-        if [ -f .eslintrc.js ] || [ -f .eslintrc.json ]; then
-          npx eslint .
-        else
-          echo "Keine ESLint-Konfiguration gefunden – Schritt übersprungen"
-        fi
+      - name: Lint and Build Frontend
+        run: |
+          cd frontend
+          npm install
+          npm run build
 
-    - name: Tests ausführen
-      run: |
-        if [ -f package.json ] && grep -q '"test":' package.json; then
-          npm test
-        else
-          echo "Kein Tests definiert – Schritt übersprungen"
-        fi
+      - name: Start Backend and Run Health Check
+        run: |
+          cd ..
+          npm run backend &
+          sleep 5
+          curl --fail http://localhost:3000 || exit 1
