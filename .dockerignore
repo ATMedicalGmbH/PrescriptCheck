@@ -1,0 +1,31 @@
+# Node-Module nie mit ins Image kopieren
+node_modules
+npm-debug.log
+
+# Lokale Umgebungsdateien
+.env
+.env.*
+
+# Git & Editorzeug
+.git
+.gitignore
+.vscode
+.idea
+
+# Doku & Metadaten
+README.md
+LICENSE.md
+CHANGELOG.md
+
+# Test- & Build-Verzeichnisse
+coverage
+dist
+build
+
+# Alle Logdateien
+*.log
+
+# Backup-Dateien
+*.bak
+*.swp
+*.tgz
