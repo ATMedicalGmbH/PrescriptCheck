@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://www.at-medical.de/logo.png" alt="AT Medical Logo" height="120">
+  <img src="assets/logo.PNG" alt="PrescriptCheck Logo" width="200"/>
 </p>
 
 <p align="center">
