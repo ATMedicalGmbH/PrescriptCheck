@@ -1,42 +1,82 @@
-# Security Policy / Sicherheitsrichtlinie
+# Sicherheitsrichtlinie – PrescriptCheck
 
-## Supported Versions / Unterstützte Versionen
+**Letzte Aktualisierung:** Mai 2025  
+**Verantwortlich:** AT Medical GmbH | prescriptcheck@at-medical.de
 
-| Version   | Supported / Unterstützt |
-|-----------|--------------------------|
-| 0.1.x     | :white_check_mark:       |
-| < 0.1.0   | :x:                      |
-
-PrescriptCheck befindet sich derzeit in der aktiven Entwicklungsphase. Nur Versionen ab **0.1.0** erhalten sicherheitsrelevante Patches. Frühere Prototypen oder private Versionen sind nicht mehr unterstützt.
+PrescriptCheck ist eine sicherheitskritische eHealth-Plattform zur Validierung von Privatrezepten.  
+Wir verpflichten uns zu höchsten Standards in den Bereichen **Datensicherheit, Integrität, Verfügbarkeit und Missbrauchsvermeidung**.
 
 ---
 
-## Reporting a Vulnerability / Melden einer Schwachstelle
+## Verantwortungsvolle Sicherheitsmeldungen
 
-If you discover a vulnerability or security issue, we kindly ask you **not to disclose it publicly**, but to report it responsibly as follows:
+Wir freuen uns über Hinweise zu potenziellen Schwachstellen.  
+Bitte sende sicherheitsrelevante Informationen **nicht öffentlich**, sondern direkt an:
 
-Wenn du eine Sicherheitslücke oder Schwachstelle entdeckst, **bitten wir dich, diese nicht öffentlich zu machen**, sondern verantwortungsvoll zu melden:
-
-### Contact
-
-- **E-Mail:** support@at-medical.de  
-- **Betreff / Subject:** Security Issue: PrescriptCheck
-
-### What to expect:
-
-- **Acknowledgement within 48 hours**
-- **Initial assessment within 5 business days**
-- **Resolution timeframe depending on severity**
-- **You will be informed before public disclosure**
+> **E-Mail:** security@at-medical.de  
+> **PGP-Schlüssel (optional):** [in Kürze verfügbar]  
+> **Reaktionszeit:** Wir antworten in der Regel innerhalb von 48 Stunden.
 
 ---
 
-## Responsible Disclosure Policy
+## Geltungsbereich
 
-We appreciate responsible disclosure practices and commit to resolving issues transparently and quickly. We credit ethical reports if desired and permitted.
+Diese Sicherheitsrichtlinie gilt für:
 
-Wir schätzen verantwortungsvolles Melden und bemühen uns um eine schnelle, nachvollziehbare Lösung. Auf Wunsch nennen wir dich in den Release Notes als Sicherheitsmelder.
+- **prescriptcheck.de** (Produktivinstanz)
+- Alle zugehörigen **APIs, Dashboards, Adminmodule**
+- Die Infrastruktur des öffentlichen GitHub-Repositories (`github.com/AT-Medical/prescriptcheck`)
+- Drittanbieter-Anbindungen wie Stripe, PayPal, Tiramizoo (soweit von uns initiiert)
 
 ---
 
-**PrescriptCheck – Sicherheit. Vertrauen. Verantwortung.**
+## Sicherheitsmaßnahmen in PrescriptCheck
+
+- **Zwei-Faktor-Authentifizierung** für alle sensiblen Aktionen
+- **Gerätebindung mit Geräte-ID-Protokollierung**
+- **Token-basierte Rezeptfreigabe** vor Einlösung
+- **Field-Level Encryption**, Data Masking & Transportverschlüsselung
+- **Audit-Logs** auf Benutzer- und Systemebene
+- **Verhaltensbasierte Missbrauchserkennung** (geplant)
+- **QS-Leitstand mit Eskalationslogik** bei Auffälligkeiten
+- **Temporäre Freigabefenster**, Softlocks & Sicherheits-Honeypots
+- **Exportverschlüsselung mit Passwortpflicht** (AES-ZIP)
+- **GPS-Protokollierung bei mobilen Auslieferungen**
+- **Immutable Infrastructure** für produktive Komponenten
+- **Zero-Trust-Architektur** in Entwicklung
+
+---
+
+## Sicherheitstests
+
+Wir führen regelmäßig interne Sicherheitsprüfungen durch, u. a.:
+
+- **Penetrationstests**
+- **Audit-Trail-Verifikation**
+- **Log-Konsistenzanalysen**
+- **DSGVO-/NIS2-konforme Vorfallbehandlung**
+- **Red-Team-Testumgebungen**
+
+---
+
+## Offenlegung und Koordination
+
+Wenn du einen sicherheitsrelevanten Fehler entdeckst:
+
+1. Melde ihn vertraulich an uns.
+2. Gib uns angemessene Zeit (mind. 10 Werktage), um den Vorfall zu bewerten und zu beheben.
+3. Optional: Du wirst öffentlich im Sicherheits-Dank (Hall of Fame) erwähnt, wenn du möchtest.
+
+---
+
+## Lizenzhinweis
+
+PrescriptCheck ist eine kommerzielle Softwarelösung der AT Medical GmbH.  
+Die Nutzung unterliegt strengen Lizenz- und Sicherheitsvorgaben.  
+Jeglicher Missbrauch, Reverse Engineering oder unautorisierter Zugriff wird rechtlich verfolgt.
+
+---
+
+**Kontakt für Sicherheitsfragen:**  
+security@at-medical.de  
+AT Medical GmbH, Heidelberg  
