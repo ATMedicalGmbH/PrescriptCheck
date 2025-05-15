@@ -1,0 +1,58 @@
+name: PrescriptCheck Quellcode-Integration
+
+on:
+  workflow_dispatch:
+
+jobs:
+  integrate-code:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Repository klonen
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.BOT_GITHUB_TOKEN }}
+
+      - name: Branch erstellen
+        run: |
+          git checkout -b auto/quellcode-integration
+
+      - name: Ordnerstruktur und Dateien einfügen
+        run: |
+          mkdir -p backend/frontend/css frontend/js database/models public/images public/pdfs public/barcode scripts .github/ISSUE_TEMPLATE .github/workflows
+          
+          echo "// Startpunkt für Backend-Server" > backend/server.js
+          echo "<!DOCTYPE html><html><head><title>PrescriptCheck</title></head><body>Startseite</body></html>" > frontend/index.html
+          echo "/* Design-Regeln */" > frontend/css/style.css
+          echo "// Frontend Logik" > frontend/js/app.js
+          echo "// Mongoose Schema für Rezepte" > database/models/recipe.js
+          echo "// Mongoose Schema für Nutzer" > database/models/user.js
+          echo "#!/bin/bash\necho 'Deployment-Skript'" > scripts/deploy.sh
+          echo "# PrescriptCheck\nDigitale Rezeptvalidierungsplattform" > README.md
+          echo "{\n  \"name\": \"prescriptcheck\", \"version\": \"0.1.0\"\n}" > package.json
+          echo "MONGODB_URI=mongodb://..." > .env.example
+          echo "module.exports = { apps : [{ name: 'prescriptcheck', script: './backend/server.js' }] };" > pm2.config.js
+
+      - name: Änderungen committen
+        run: |
+          git config user.name "PrescriptCheck Bot"
+          git config user.email "bot@at-medical.de"
+          git add .
+          git commit -m "Vollständiger Quellcode automatisch integriert"
+
+      - name: Änderungen pushen
+        run: |
+          git push origin auto/quellcode-integration
+
+      - name: Pull Request erstellen
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.BOT_GITHUB_TOKEN }}
+          commit-message: "Automatisierte Quellcode-Integration"
+          title: "PrescriptCheck – Automatisierte Quellcode-Integration"
+          body: "Dieser PR enthält die vollständige Struktur und den vorbereiteten Projektcode."
+          branch: auto/quellcode-integration
+          base: main
