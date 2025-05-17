@@ -1,0 +1,1 @@
+// Platzhalter für theme.config.js

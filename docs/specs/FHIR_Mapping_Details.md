@@ -1,0 +1,1 @@
+// Platzhalter für FHIR_Mapping_Details.md

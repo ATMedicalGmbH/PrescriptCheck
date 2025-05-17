@@ -1,0 +1,1 @@
+// Platzhalter für i18n.config.js

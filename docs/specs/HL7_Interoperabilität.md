@@ -1,0 +1,1 @@
+// Platzhalter für HL7_Interoperabilität.md
