@@ -1,3 +1,0 @@
-# Feature: Videosprechstunde
-
-Beschreibung des neuen Features...
