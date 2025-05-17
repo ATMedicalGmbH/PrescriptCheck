@@ -1,110 +1,128 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PrescriptCheck – Rollout in Kürze</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PrescriptCheck – Digitale Rezeptvalidierung</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #0d1a2f;
-      color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 40px 20px;
-      min-height: 100vh;
+      color: #222;
     }
-    .container {
-      background-color: white;
-      max-width: 800px;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
-    }
-    .logo {
-      display: block;
-      margin: 0 auto 20px auto;
-      max-width: 200px;
-    }
-    h1, h2 {
+
+    header {
+      background-color: #0d1a2f;
+      padding: 40px 0;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      max-height: 100px;
+      border-radius: 12px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 30px;
+      margin-bottom: 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    h1, h2 {
       color: #0d1a2f;
     }
-    section {
-      margin-bottom: 30px;
+
+    p {
+      line-height: 1.6;
     }
-    small {
-      display: block;
-      margin-top: 10px;
-      color: #777;
+
+    footer {
       text-align: center;
+      color: #aaa;
+      font-size: 0.9em;
+      padding: 40px 0;
     }
   </style>
 </head>
 <body>
+  <header>
+    <img src="IMG_6235.jpeg" alt="PrescriptCheck Logo" />
+  </header>
+
   <div class="container">
-    <img src="IMG_6235.jpeg" alt="PrescriptCheck Logo" class="logo">
-    <h1>PrescriptCheck</h1>
-    <p style="text-align: center; font-size: 1.2em; color: #222;">
-      Wir stehen kurz vor dem offiziellen Roll-out unserer digitalen Validierungsplattform für Privatrezepte.
-    </p>
 
-    <section>
-      <h2>Über das Projekt</h2>
+    <div class="card">
+      <h1>PrescriptCheck – Revolution in der Rezeptvalidierung</h1>
       <p>
-        PrescriptCheck ist eine hochsichere, KI-gestützte Plattform zur fälschungssicheren Verordnung und Überprüfung medizinischer Rezepte. 
-        Mit fortschrittlichen Sicherheitsstufen, Audit-Logik, Rollenmodellen und maschinellem Lernen setzt PrescriptCheck neue Maßstäbe im eHealth-Bereich.
-        Das System verbessert sich kontinuierlich mit jeder Nutzung – es ist kein statisches Produkt, sondern ein lernfähiges Sicherheitssystem.
+        PrescriptCheck ist ein hochsicheres, KI-gestütztes System zur digitalen Verordnung und Validierung von medizinischen Rezepten. 
+        Es ermöglicht Ärzten, Apotheken und medizinischen Einrichtungen eine fälschungssichere, rechtskonforme und nachvollziehbare Verordnung privater Arzneimittel – national wie international.
+        Das System nutzt künstliche Intelligenz und maschinelles Lernen, um sich mit jeder Nutzung zu verbessern. Es ist kein statisches Produkt, sondern ein dynamisches Sicherheitsnetz für das Gesundheitswesen.
       </p>
-    </section>
+    </div>
 
-    <section>
+    <div class="card">
       <h2>Unsere Contribution</h2>
       <p>
-        Dieses Projekt wurde vollständig in Eigeninitiative konzipiert, entwickelt und validiert. Es vereint medizinisches Wissen mit hochmoderner Webtechnologie
-        und ist bereit für den Einsatz im nationalen wie europäischen Raum. Die Infrastruktur ist vollständig vorbereitet für ISO-, gematik- und DSGVO-Standards.
+        PrescriptCheck wurde vollständig eigenständig entwickelt und ist das Ergebnis aus interdisziplinärer medizinischer Erfahrung, regulatorischer Analyse und technologischem Weitblick.
+        Ziel war es, ein System zu schaffen, das ärztliche Verantwortung mit digitaler Absicherung vereint, Apotheken entlastet und Missbrauch aktiv verhindert.
+        Unser Beitrag zur digitalen Gesundheitslandschaft umfasst sowohl das technische System als auch die juristische Strategie für gesetzgeberische Absicherung, Schnittstellen für die Telematikinfrastruktur und eine benutzerfreundliche Oberfläche für alle Rollen im medizinischen Alltag.
       </p>
-    </section>
+    </div>
 
-    <section>
+    <div class="card">
+      <h2>Sicherheitsarchitektur & Systemfunktionen</h2>
+      <p>
+        PrescriptCheck implementiert eine der fortschrittlichsten Sicherheitsarchitekturen im medizinischen Bereich:
+        Rollenbasierte Zugriffskontrollen (Administrator, Manager, Betreiber, User, Auditor), kontextabhängige Sicherheitsstufen (0–3), Audit-Trails, Gerätebindung, NFC-Authentifizierung, digitale Selbstverpflichtung und ein System zur KI-gestützten Verhaltensanalyse sorgen dafür, dass sensible Rezeptdaten nur durch autorisierte, geschulte Personen bearbeitet werden können.
+        Silent Alerts, TTS-Anbindung für Polizei-Notrufe, Notdienst-Sicherheitsmechanismen, GPS-Lokalisierung für Lieferungen und Echtzeit-Heatmaps für Missbrauchserkennung gehören zur Grundausstattung.
+        Das System ist vollständig skalierbar, DSGVO-konform und anschlussfähig für nationale wie europäische Regulierungen (gematik, EHDS, MDR).
+      </p>
+    </div>
+
+    <div class="card">
       <h2>Code of Conduct</h2>
       <p>
-        Wir verpflichten uns zu einem respektvollen, verantwortungsvollen Umgang mit sensiblen Daten, Informationen und Nutzern. PrescriptCheck steht für Transparenz, 
-        Datenschutz, Interoperabilität und nachhaltige Digitalisierung im Gesundheitswesen.
+        Wir verpflichten uns zu höchster ethischer und rechtlicher Integrität. Der Einsatz von PrescriptCheck erfolgt ausschließlich zum Schutz der Patientensicherheit, der Verordnungssicherheit und im Einklang mit allen datenschutzrechtlichen Vorgaben. 
+        Jegliche Nutzung zum Zweck der Datenvermarktung, Profilbildung oder Manipulation medizinischer Prozesse ist ausdrücklich untersagt. Wir stehen für Transparenz, Verantwortung und Respekt gegenüber allen Beteiligten im Gesundheitssystem.
       </p>
-    </section>
+    </div>
 
-    <section>
-      <h2>Lizenzbedingungen</h2>
+    <div class="card">
+      <h2>Lizenz & Urheberrecht</h2>
       <p>
-        Dieses Projekt unterliegt einer kommerziellen Lizenzierung durch die AT Medical GmbH. Jegliche Nutzung, Vervielfältigung oder Weitergabe – auch auszugsweise – 
-        bedarf der schriftlichen Zustimmung. Für zertifizierte Partner können individuelle Lizenzvereinbarungen getroffen werden.
+        PrescriptCheck ist ein kommerzielles Produkt der AT Medical GmbH. Alle Bestandteile – Software, Code, Architektur, Benutzeroberfläche, KI-Logik – unterliegen dem Urheberrecht.
+        Die Nutzung ist ausschließlich im Rahmen einer gültigen Lizenz gestattet. Unberechtigte Nutzung, Weitergabe oder Nachbau sind untersagt und werden rechtlich verfolgt.
+        Eine Open-Source-Nutzung ist nicht vorgesehen. Offizielle Partner erhalten dedizierte Lizenzverträge mit abgestuften Berechtigungen und Supportvereinbarungen.
       </p>
-    </section>
+    </div>
 
-    <section>
-      <h2>Urheberrecht</h2>
-      <p>
-        © 2025 AT Medical GmbH – Alle Rechte vorbehalten. Die gesamte Plattformstruktur, inklusive Design, Code, Datenbankmodell und Sicherheitskonzept, 
-        ist urheberrechtlich geschützt. Die Verletzung dieser Rechte kann straf- und zivilrechtlich verfolgt werden.
-      </p>
-    </section>
-
-    <section>
+    <div class="card">
       <h2>Impressum</h2>
       <p>
         AT Medical GmbH<br>
         Bergheimer Str. 116<br>
         69115 Heidelberg<br>
-        E-Mail: PrescriptCheck@at-medical.de<br>
-        Geschäftsführung: Dr. A. Tremml<br>
-        USt-IdNr.: DE123456789
+        Geschäftsführer: Dr. A. Tremml<br>
+        info@prescriptcheck.de<br>
+        USt-ID: DE123456789
       </p>
-    </section>
-
-    <small>Stand: Mai 2025</small>
+    </div>
   </div>
+
+  <footer>
+    © 2025 AT Medical GmbH – Alle Rechte vorbehalten
+  </footer>
 </body>
 </html>
